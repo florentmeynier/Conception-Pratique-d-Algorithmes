@@ -1,0 +1,31 @@
+package algorithms.communityDetection.test;
+
+import java.io.IOException;
+
+import algorithms.communityDetection.LabelPropagation;
+import algorithms.files.CreateAdjArray;
+import algorithms.graphs.AdjArray;
+
+public class LabelPropagationTest {
+
+	private static final String SAMPLES_PATH = "Results";
+	private static final String PATTERN = "benchmark_1_1";
+	private static final String EXT = ".txt";
+	
+	public static void main(String []args)
+	{
+		CreateAdjArray createG = new CreateAdjArray();
+		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, true, 400);
+		
+		LabelPropagation lp = new LabelPropagation(g);
+		
+		lp.propagate();
+		lp.afficheLabels();
+		try {
+			lp.exportToFile(SAMPLES_PATH, "propagate_1");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
