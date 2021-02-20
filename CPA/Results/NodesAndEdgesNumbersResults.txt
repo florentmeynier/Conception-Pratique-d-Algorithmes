@@ -1,0 +1,20 @@
+-------------------------------
+File: com-amazon.ungraph.txt
+Nodes count: 334863
+Edge count: 925872
+-------------------------------
+-------------------------------
+File: com-lj.ungraph.txt
+Nodes count: 3997962
+Edge count: 34681189
+-------------------------------
+-------------------------------
+File: com-orkut.ungraph.txt
+Nodes count: 3072441
+Edge count: 117185083
+-------------------------------
+-------------------------------
+File: com-friendster.ungraph.txt
+Nodes count: 65608366
+Edge count: 1806067135
+-------------------------------
