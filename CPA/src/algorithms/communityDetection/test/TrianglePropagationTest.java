@@ -2,12 +2,12 @@ package algorithms.communityDetection.test;
 
 import java.io.IOException;
 
-import algorithms.communityDetection.LabelPropagation;
+import algorithms.communityDetection.TrianglePropagation;
 import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
 
-public class LabelPropagationTest {
-
+public class TrianglePropagationTest {
+	
 	private static final String SAMPLES_PATH = "Results";
 	private static final String PATTERN = "benchmark_1_1";
 	private static final String EXT = ".txt";
@@ -15,19 +15,17 @@ public class LabelPropagationTest {
 	public static void main(String []args)
 	{
 		CreateAdjArray createG = new CreateAdjArray();
-		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, true, 400);
+		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, false, 400);
 		
-		LabelPropagation lp = new LabelPropagation(g);
+		TrianglePropagation tp = new TrianglePropagation(g);
+				
+		tp.propagate();
+		tp.afficheLabels();
 		
-		
-		
-		lp.propagate();
-		lp.afficheLabels();
 		try {
-			lp.exportToFile(SAMPLES_PATH, "propagate_1");
+			tp.exportToFile(SAMPLES_PATH, "propagate_2");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
 }

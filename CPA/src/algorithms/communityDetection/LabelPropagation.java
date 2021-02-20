@@ -108,6 +108,10 @@ public class LabelPropagation
 		
 		int u = 0;
 		for(LinkedList<Integer> l : graph.getGraphe()) {
+			if(u == graph.size())
+			{
+				break;
+			}
 			u++;
 			for(Integer v : l)
 			{

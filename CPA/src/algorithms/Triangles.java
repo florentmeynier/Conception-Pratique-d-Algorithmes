@@ -47,6 +47,7 @@ public class Triangles
 		
 		return nbt;
 	}
+	
 	private static AdjArray LoadGrapheArray(final String parentPath, final String childPath, int size)
 	{
 		Scanner sc = null;
