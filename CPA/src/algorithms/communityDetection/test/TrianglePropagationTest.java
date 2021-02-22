@@ -3,8 +3,8 @@ package algorithms.communityDetection.test;
 import java.io.IOException;
 
 import algorithms.communityDetection.TrianglePropagation;
-import algorithms.files.CreateAdjArray;
-import algorithms.graphs.AdjArray;
+import algorithms.files.CreateAdjArrayEdge;
+import algorithms.graphs.AdjArrayEdge;
 
 public class TrianglePropagationTest {
 	
@@ -14,8 +14,8 @@ public class TrianglePropagationTest {
 	
 	public static void main(String []args)
 	{
-		CreateAdjArray createG = new CreateAdjArray();
-		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, false, 400);
+		CreateAdjArrayEdge createG = new CreateAdjArrayEdge();
+		AdjArrayEdge g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, false, 400);
 		
 		TrianglePropagation tp = new TrianglePropagation(g);
 				

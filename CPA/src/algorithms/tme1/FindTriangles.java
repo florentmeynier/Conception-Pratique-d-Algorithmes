@@ -4,49 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 import algorithms.communityDetection.Triangle;
-import algorithms.graphs.AdjArray;
+import algorithms.graphs.AdjArrayEdge;
+import algorithms.graphs.Edge;
 
 public class FindTriangles {
 
-	private AdjArray graph;
+	private AdjArrayEdge graph;
 	
-	public FindTriangles(AdjArray graph)
+	public FindTriangles(AdjArrayEdge graph)
 	{
 		this.graph = graph;
 	}
 	
-	public List<Triangle> findTriangles() 
+	public List<Triangle> findTriangles()
 	{
-		List<Triangle> list = new ArrayList<Triangle>();
+		List<Triangle> res = new ArrayList<Triangle>();
 		
-		for(int i=0; i<graph.getGraphe().length;i++)
+		for(Edge e : graph.getEdges())
 		{
-			if(graph.getGraphe()[i]==null)
-				continue;
-			int u = i;
-			for(int j=0; j<graph.getGraphe()[u].size();j++)
+			int u = e.getFrom();
+			int v = e.getTo();
+			int i = 0, j = 0;
+			List<Integer> vu = graph.getGraphe()[u];
+			List<Integer> vv = graph.getGraphe()[v];
+			while(i < vu.size() && vu.get(i)  <= v)
 			{
-				int v = graph.getGraphe()[u].get(j);
-				if(v <= u)
-					continue;
-				for(int k=0;k<graph.getGraphe()[v].size();k++)
+				i++;
+			}
+			while(j < vv.size() && vv.get(j) <= u)
+			{
+				j++;
+			}
+			while(i < vu.size() && j < vv.size())
+			{
+				if(vu.get(i) < vv.get(j))
 				{
-					int w = graph.getGraphe()[v].get(k);
-					if(w <= v)
-						continue;
-					for(int h = 0;h<graph.getGraphe()[w].size();h++)
-					{
-						if(u == graph.getGraphe()[w].get(h))
-						{
-							list.add(new Triangle(u, v, w));
-							break;
-						}
-					}
-					
+					i++;
+				} else if(vu.get(i) > vv.get(j))
+				{
+					j++;
+				} else 
+				{
+					res.add(new Triangle(u, v, vu.get(i)));
+					i++;
+					j++;
 				}
 			}
 		}
-		return list;
-	}
-	
+		
+		return res;
+	}	
 }

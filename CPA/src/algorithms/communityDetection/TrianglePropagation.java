@@ -9,15 +9,15 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import algorithms.graphs.AdjArray;
+import algorithms.graphs.AdjArrayEdge;
 import algorithms.tme1.FindTriangles;
 
 public class TrianglePropagation {
 
-	private AdjArray graph;
+	private AdjArrayEdge graph;
 	private List<Integer> labels;
 	
-	public TrianglePropagation(AdjArray graph)
+	public TrianglePropagation(AdjArrayEdge graph)
 	{
 		this.graph = graph;
 	}
