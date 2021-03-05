@@ -21,7 +21,7 @@ public class BFSTest {
 		for(int i = 0; i < files.length; i++)
 		{
 			final String CHILD_PATH = PATTERN + files[i] + ENDPATTERN + EXT;
-			AdjArray g = createG.create(SAMPLES_PATH, CHILD_PATH, 4, false, edges[i]);
+			AdjArray g = createG.create(SAMPLES_PATH, CHILD_PATH, 4, false);
 			BFS bfs = new BFS(g);
 			int s = 0;
 			do

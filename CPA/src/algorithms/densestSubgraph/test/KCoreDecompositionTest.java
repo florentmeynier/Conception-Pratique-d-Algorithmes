@@ -1,6 +1,9 @@
 package algorithms.densestSubgraph.test;
 
+import java.io.IOException;
+
 import algorithms.densestSubgraph.KCoreDecomposition;
+import algorithms.densestSubgraph.data.ResultKCore;
 import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
 
@@ -35,10 +38,20 @@ public class KCoreDecompositionTest {
 		KCoreDecomposition kcore = new KCoreDecomposition(g);
 		System.out.println(kcore.decompose());*/
 		
-		AdjArray g = createG.create("Samples", "com-amazon.ungraph.txt", 4, false, 925872);
-		//AdjArray g = createG.create("Results", "benchmark_1_1.txt", 0, false, 4052);
+		//AdjArray g = createG.create("Samples", "net.txt", 0, true);
+		AdjArray g = createG.create("Samples", "com-lj.ungraph.txt", 4, false);
 		System.out.println("START");
 		KCoreDecomposition kcore = new KCoreDecomposition(g);
-		System.out.println(kcore.decompose());
+		
+		ResultKCore c = kcore.decompose();
+		/*try {
+			kcore.exportToFile("Results", "kcore_1", c);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
+		
+		System.out.println("c : " + c.getCore());
+		System.out.println("Average degree density : " + c.getAvD());
+		System.out.println("Edge density : " + (g.getNbEdges() / c.getDMax()));
 	}
 }

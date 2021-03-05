@@ -15,7 +15,7 @@ public class LouvainTest {
 	public static void main(String []args)
 	{
 		CreateAdjArray createG = new CreateAdjArray();
-		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, true, 400);
+		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, true);
 		
 		Louvain l = new Louvain(g);
 		

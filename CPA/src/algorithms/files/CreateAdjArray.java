@@ -2,15 +2,23 @@ package algorithms.files;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import algorithms.graphs.AdjArray;
 
 public class CreateAdjArray {
 
-	public AdjArray create(final String parentPath, final String childPath, int nbJumps, boolean isOriented,int size) {
+	public AdjArray create(final String parentPath, final String childPath, int nbJumps, boolean isOriented) {
 		Scanner sc = null;
-		AdjArray g = new AdjArray(isOriented, size);
+		
+		List<Integer> from = new ArrayList<>();
+		List<Integer> to = new ArrayList<>();
+		int max = 0;
+		
+		int f, t;
 		
 		try {
 			sc = new Scanner(new File(parentPath, childPath));
@@ -21,7 +29,18 @@ public class CreateAdjArray {
 			
 			while(sc.hasNextInt())
 			{
-				g.addEdge(sc.nextInt(),sc.nextInt());
+				f = sc.nextInt();
+				t = sc.nextInt();
+				from.add(f);
+				to.add(t);
+				if(f > max)
+				{
+					max = f;
+				}
+				if(t > max)
+				{
+					max = t;
+				}
 			}
 			
 		}catch (FileNotFoundException e) 
@@ -32,6 +51,13 @@ public class CreateAdjArray {
 		{
 			sc.close();
 		}
+		AdjArray g = new AdjArray(isOriented, max);
+		
+		for(int i = 0; i < from.size(); i++)
+		{
+			g.addEdge(from.get(i), to.get(i));
+		}
+		
 		return g;		
 	}
 }

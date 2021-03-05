@@ -1,8 +1,13 @@
 package algorithms.densestSubgraph;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import algorithms.densestSubgraph.data.ResultKCore;
 import algorithms.graphs.AdjArray;
 
 public class KCoreDecomposition {
@@ -13,65 +18,52 @@ public class KCoreDecomposition {
 		this.g = g;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public int decompose() 
+	public ResultKCore decompose() 
 	{
 		List<Integer> l = new ArrayList<Integer>();
 		List<Integer> d = new ArrayList<Integer>();
-		int max = 0;
-		for(int i = 0; i < g.size(); i++)
+		int dMax = 0;
+		for(int i = 0; i < g.size(); i++) // Get maximum degree
 		{
-			if(g.getGraphe()[i] != null)
+			if(g.getGraphe()[i].size() > dMax)
 			{
-				if(g.getGraphe()[i].size() > max)
-				{
-					max = g.getGraphe()[i].size();
-				}
+				dMax = g.getGraphe()[i].size();
 			}
 		}
-		List<Integer> []D = new ArrayList[max + 1];
-		for(int i = 0; i < D.length; i++)
+		List<List<Integer>> D = new ArrayList<>();
+		for(int i = 0; i < dMax + 1; i++) // Generate our list of list of degree
 		{
-			D[i] = new ArrayList<Integer>();
+			D.add(new ArrayList<Integer>());
 		}
-		for(int i = 0; i < g.size(); i++)
+		int sommeD = 0;
+		int nbNodes = 0;
+		for(int i = 0; i < g.getMax(); i++)
 		{
-			if(g.getGraphe()[i] != null)
-			{
-				d.add(g.getGraphe()[i].size());
-			} else {
-				d.add(0);
-			}
-			D[d.get(i)].add(i);
+			d.add(g.getGraphe()[i].size());
+			D.get(d.get(i)).add(i);
 			l.add(0);
+			sommeD += g.getGraphe()[i].size();
+			nbNodes++;
 		}
 		int i = 0;
-		for(int k = 0; k <= max; k++)
+		for(int k = 0; k <= dMax; k++)
 		{
-			while(!D[k].isEmpty())
+			while(!D.get(k).isEmpty())
 			{
-				i = D[k].remove(0);
+				i = D.get(k).remove(0);
 				l.set(i, k);
-				if(g.getGraphe()[i] == null)
-				{
-					continue;
-				}
 				for(int v = 0; v < g.getGraphe()[i].size(); v++)
 				{
 					int j = g.getGraphe()[i].get(v);
-					if(g.getGraphe()[j] == null)
-					{
-						continue;
-					}
 					if(g.getGraphe()[j].size() > k)
 					{
 						int dJ = g.getGraphe()[j].size();
-						for(int u = 0; u < D[dJ].size(); u++)
+						for(int u = 0; u < D.get(dJ).size(); u++)
 						{
-							if(D[dJ].get(u) == j)
+							if(D.get(dJ).get(u) == j)
 							{
-								D[dJ].remove(u);
-								D[dJ - 1].add(j);
+								D.get(dJ).remove(u);
+								D.get(dJ - 1).add(j);
 								d.set(j, d.get(j) - 1);
 								break;
 							}
@@ -80,83 +72,27 @@ public class KCoreDecomposition {
 				}
 			}
 		}
-		int somme = 0;
-		int cpt = 0;
-		for(int z = 0; z < l.size(); z++)
-		{
-			if(l.get(z) > 0)  
-			{
-				somme += l.get(z);
-				cpt++;
-			}
-		}
 		
-		int moy = somme / cpt;
-		System.out.println(somme / (cpt * 1.0));
-		System.out.println(max + " " + moy);
+		System.out.println(sommeD + " " + nbNodes);
 		
-		return moy;
+		return new ResultKCore(dMax, l, (sommeD / nbNodes));
 	}
 	
-	/*public int decompose()
-	{
-		int i = g.size();
-		int c = 0;
-		List<Integer> v = new ArrayList<>();
-		for(int n = 1; n < g.size(); n++) {
-			if(g.getGraphe()[n] != null)
-			{
-				v.add(n);
-			}
-		}
-		while(!v.isEmpty())
-		{
-			System.out.println(v.size());
-			int idMin = 0;
-			int min = Integer.MAX_VALUE;
-			for(int u = 1; u < g.size(); u++) 
-			{
-				if(g.getGraphe()[u] == null)
-				{
-					continue;
-				}
-				if(g.getGraphe()[u].size() < min)
-				{
-					idMin = u;
-					min = g.getGraphe()[u].size();
-				}
-			}
-			c = Math.max(c, g.getGraphe()[idMin].size());
-			for(int n = 0; n < v.size(); n++)
-			{
-				if(v.get(n) == idMin)
-				{
-					v.remove(n);
-				}
-			}
-			g.getGraphe()[idMin] = null;
-			removeEdges(idMin);
-			i--;
-		}
-		return c;
-	}*/
-	
-	private void removeEdges(int v)
-	{
-		for(int i = 1; i < g.size(); i++)
-		{
-			if(g.getGraphe()[i] == null)
+	public void exportToFile(final String path, final String fileName, ResultKCore result) throws IOException {
+		File export = new File(path, fileName + ".txt");
+		BufferedWriter writer = new BufferedWriter(new FileWriter(export));
+		StringBuilder builder = new StringBuilder();
+		
+		for(int i = 0; i < result.getCores().size(); i++) {
+			if(result.getCores().get(i) == 0 || g.getGraphe()[i].isEmpty())
 			{
 				continue;
 			}
-			for(int j = 0; j < g.getGraphe()[i].size(); j++) {
-				if(g.getGraphe()[i].get(j) == v)
-				{
-					g.getGraphe()[j].remove(j);
-					break;
-				}
-			}
+			builder.append(result.getCores().get(i) + "\t" + g.getGraphe()[i].size() + "\n");
 		}
+			
+		writer.write(builder.toString());
+		writer.close();
 	}
-
+	
 }

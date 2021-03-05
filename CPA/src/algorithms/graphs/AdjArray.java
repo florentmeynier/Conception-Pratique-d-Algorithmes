@@ -12,13 +12,14 @@ public class AdjArray {
 	@SuppressWarnings("unchecked")
 	public AdjArray(boolean isOriented, int size) 
 	{
-		graphe = new LinkedList[size];
-		for(int i = 0; i < size; i++) 
+		graphe = new LinkedList[size + 1];
+		for(int i = 0; i < size + 1; i++) 
 		{
 			graphe[i] = new LinkedList<>();
 		}
 		this.isOriented = isOriented;
 		nbEdges = 0;
+		max = size;
 	}
 	
 	public void addEdge(int from, int to)
@@ -29,14 +30,14 @@ public class AdjArray {
         	graphe[to].add(from);
         }
         
-        if(max<from)
+        /*if(max < from)
         {
         	max = from;
         }
         if(max < to)
         {
         	max = to;
-        }
+        }*/
         nbEdges++;
     }
 	
@@ -62,6 +63,4 @@ public class AdjArray {
 	{
 		return nbEdges;
 	}
-	
-
 }
