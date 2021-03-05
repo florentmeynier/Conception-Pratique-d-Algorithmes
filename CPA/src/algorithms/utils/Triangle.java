@@ -1,4 +1,4 @@
-package algorithms.communityDetection;
+package algorithms.utils;
 
 public class Triangle {
 

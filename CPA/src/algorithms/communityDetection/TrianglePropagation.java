@@ -11,6 +11,7 @@ import java.util.Random;
 
 import algorithms.graphs.AdjArrayEdge;
 import algorithms.tme1.FindTriangles;
+import algorithms.utils.Triangle;
 
 public class TrianglePropagation {
 

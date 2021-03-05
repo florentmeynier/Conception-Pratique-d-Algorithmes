@@ -3,10 +3,10 @@ package algorithms.tme1.test;
 import java.util.Date;
 import java.util.List;
 
-import algorithms.communityDetection.Triangle;
 import algorithms.files.CreateAdjArrayEdge;
 import algorithms.graphs.AdjArrayEdge;
 import algorithms.tme1.FindTriangles;
+import algorithms.utils.Triangle;
 
 public class FindTrianglesTest {
 

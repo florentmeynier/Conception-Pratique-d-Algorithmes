@@ -7,6 +7,7 @@ public class AdjArray {
 	private LinkedList<Integer> [] graphe;
 	private int max = Integer.MIN_VALUE;
 	private final boolean isOriented;
+	private int nbEdges;
 
 	@SuppressWarnings("unchecked")
 	public AdjArray(boolean isOriented, int size) 
@@ -17,6 +18,7 @@ public class AdjArray {
 			graphe[i] = new LinkedList<>();
 		}
 		this.isOriented = isOriented;
+		nbEdges = 0;
 	}
 	
 	public void addEdge(int from, int to)
@@ -35,6 +37,7 @@ public class AdjArray {
         {
         	max = to;
         }
+        nbEdges++;
     }
 	
 	public int getMax() {
@@ -50,6 +53,15 @@ public class AdjArray {
 		return graphe;
 	}
 	
+	public boolean isOriented()
+	{
+		return isOriented;
+	}
+	
+	public int getNbEdges()
+	{
+		return nbEdges;
+	}
 	
 
 }

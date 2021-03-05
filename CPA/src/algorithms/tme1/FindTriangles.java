@@ -3,9 +3,9 @@ package algorithms.tme1;
 import java.util.ArrayList;
 import java.util.List;
 
-import algorithms.communityDetection.Triangle;
 import algorithms.graphs.AdjArrayEdge;
 import algorithms.graphs.Edge;
+import algorithms.utils.Triangle;
 
 public class FindTriangles {
 
