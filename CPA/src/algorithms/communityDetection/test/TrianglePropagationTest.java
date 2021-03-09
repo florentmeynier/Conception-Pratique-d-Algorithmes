@@ -18,7 +18,7 @@ public class TrianglePropagationTest {
 	public static void main(String []args)
 	{
 		CreateAdjArrayEdge createG = new CreateAdjArrayEdge();
-		AdjArrayEdge g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, false, 400);
+		AdjArrayEdge g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, false);
 		
 		TrianglePropagation tp = new TrianglePropagation(g);
 				

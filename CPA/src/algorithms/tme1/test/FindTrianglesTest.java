@@ -25,7 +25,7 @@ public class FindTrianglesTest {
 		int i = 1;
 		
 		CreateAdjArrayEdge createG = new CreateAdjArrayEdge();
-		AdjArrayEdge g = createG.create(SAMPLES_PATH, PATTERN + files[i] + ENDPATTERN + EXT, 4, false, edges[i]);
+		AdjArrayEdge g = createG.create(SAMPLES_PATH, PATTERN + files[i] + ENDPATTERN + EXT, 4, false);
 		
 		FindTriangles t = new FindTriangles(g);
 		
