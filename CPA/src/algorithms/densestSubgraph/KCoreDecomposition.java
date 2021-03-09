@@ -10,14 +10,24 @@ import java.util.List;
 import algorithms.densestSubgraph.data.ResultKCore;
 import algorithms.graphs.AdjArray;
 
+/**
+ * Core decomposition
+ */
 public class KCoreDecomposition {
 	
+	/**
+	 * Graphe
+	 */
 	private AdjArray g;
 	
 	public KCoreDecomposition(AdjArray g) {
 		this.g = g;
 	}
 	
+	/**
+	 * Algorithme de core decomposition d'un graphe
+	 * @return le resultat de l'algorithme stocke dans la classe ResultKCore
+	 */
 	public ResultKCore decompose() 
 	{
 		List<Integer> l = new ArrayList<Integer>();
@@ -73,11 +83,17 @@ public class KCoreDecomposition {
 			}
 		}
 		
-		System.out.println(sommeD + " " + nbNodes);
-		
 		return new ResultKCore(dMax, l, (sommeD / nbNodes));
 	}
 	
+	
+	/**
+	 * Exportation du resultat dans un fichier
+	 * @param path
+	 * @param fileName
+	 * @param result
+	 * @throws IOException
+	 */
 	public void exportToFile(final String path, final String fileName, ResultKCore result) throws IOException {
 		File export = new File(path, fileName + ".txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(export));

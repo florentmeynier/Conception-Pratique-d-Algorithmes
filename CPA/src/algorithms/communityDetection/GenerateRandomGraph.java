@@ -6,12 +6,33 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * Class de génération de graphe avec cluster
+ */
 public class GenerateRandomGraph {
 
+	/**
+	 * Nom du fichier de resultat
+	 */
 	private final String RESULTS_PATH = "Results";
+	/**
+	 * Reportoire du fichier de resultat
+	 */
 	private final String RESULTS_BENCHMARK = "benchmark";
+	/**
+	 * Extension du fichier de resultat
+	 */
 	private final String EXT = ".txt";
 	
+	/**
+	 *
+	 * @param sbBenchmark
+	 * @param size
+	 * @param clusterSize
+	 * @param p
+	 * @param q
+	 * @return chaine de caractere correspondant au graphe genere
+	 */
 	private StringBuilder benchmark(StringBuilder sbBenchmark, final int size, final int clusterSize, double p, double q) 
 	{
 		double proba;
@@ -37,6 +58,12 @@ public class GenerateRandomGraph {
 		return sbBenchmark;
 	}
 	
+	/**
+	 * Creation du graphe
+	 * @param size
+	 * @param clusterSize
+	 * @throws IOException
+	 */
 	public void makeBenchmark(final int size, final int clusterSize) throws IOException
 	{
 		File resultBenchmark = new File(RESULTS_PATH , RESULTS_BENCHMARK + "_" + 1 + "_" + 1+EXT);
@@ -49,6 +76,10 @@ public class GenerateRandomGraph {
 		benchWriter.close();
 	}
 	
+	/**
+	 * Entree du programme
+	 * @param args
+	 */
 	public static void main(String[] args) 
 	{		
 		GenerateRandomGraph sb = new GenerateRandomGraph();

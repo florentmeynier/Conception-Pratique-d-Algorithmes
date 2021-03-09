@@ -6,6 +6,9 @@ import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
 import algorithms.tme1.BFS;
 
+/**
+ * Programme de test de l'algorithme BFS
+ */
 public class BFSTest {
 
 	private static final String SAMPLES_PATH = "Samples";

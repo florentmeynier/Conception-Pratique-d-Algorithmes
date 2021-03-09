@@ -6,6 +6,9 @@ import algorithms.communityDetection.Louvain;
 import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
 
+/**
+ * Programme de test de l'algorithme de Louvain
+ */
 public class LouvainTest {
 
 	private static final String SAMPLES_PATH = "Results";

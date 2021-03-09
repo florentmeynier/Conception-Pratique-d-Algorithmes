@@ -13,9 +13,18 @@ import algorithms.graphs.AdjArrayEdge;
 import algorithms.tme1.FindTriangles;
 import algorithms.utils.Triangle;
 
+/**
+ * Implementation de notre propre algorithme de recherche de communaute fonctionnant avec les triangles
+ */
 public class TrianglePropagation {
 
+	/**
+	 * Graphe
+	 */
 	private AdjArrayEdge graph;
+	/**
+	 * Liste des labels de chaque noeud
+	 */
 	private List<Integer> labels;
 	
 	public TrianglePropagation(AdjArrayEdge graph)
@@ -23,6 +32,9 @@ public class TrianglePropagation {
 		this.graph = graph;
 	}
 	
+	/**
+	 * Algorithme de propagation et de recherche de clusters
+	 */
 	public void propagate() 
 	{
 		List<Triangle> list = new FindTriangles(graph).findTriangles();
@@ -89,6 +101,9 @@ public class TrianglePropagation {
 		} while(swap);
 	}
 	
+	/**
+	 * Affichage des noeuds avec leurs communautes
+	 */
 	public void afficheLabels()
 	{
 		for(int i = 0; i < 4; i++)
@@ -101,6 +116,12 @@ public class TrianglePropagation {
 		}
 	}
 	
+	/**
+	 * Exportation des noeuds avec leurs communautes dans un fichier
+	 * @param path
+	 * @param fileName
+	 * @throws IOException
+	 */
 	public void exportToFile(final String path, final String fileName) throws IOException {
 		File export = new File(path, fileName + ".txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(export));

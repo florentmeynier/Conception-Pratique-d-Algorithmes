@@ -6,6 +6,9 @@ import algorithms.communityDetection.TrianglePropagation;
 import algorithms.files.CreateAdjArrayEdge;
 import algorithms.graphs.AdjArrayEdge;
 
+/**
+ * Programme de test de la propagation sur triangles
+ */
 public class TrianglePropagationTest {
 	
 	private static final String SAMPLES_PATH = "Results";

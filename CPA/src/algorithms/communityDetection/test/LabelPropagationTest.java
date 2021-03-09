@@ -6,6 +6,9 @@ import algorithms.communityDetection.LabelPropagation;
 import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
 
+/**
+ * Programme de test de l'algorithme de propagation
+ */
 public class LabelPropagationTest {
 
 	private static final String SAMPLES_PATH = "Results";

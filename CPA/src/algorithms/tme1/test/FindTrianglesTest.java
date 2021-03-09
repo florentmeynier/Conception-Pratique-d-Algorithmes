@@ -8,6 +8,9 @@ import algorithms.graphs.AdjArrayEdge;
 import algorithms.tme1.FindTriangles;
 import algorithms.utils.Triangle;
 
+/**
+ * Programme de test de la recherche des triangles
+ */
 public class FindTrianglesTest {
 
 	private static final String SAMPLES_PATH = "Samples";

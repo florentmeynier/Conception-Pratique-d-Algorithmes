@@ -13,11 +13,23 @@ import java.util.Map;
 
 import algorithms.graphs.AdjArray;
 
+/**
+ * Label propagation
+ */
 public class LabelPropagation 
 {
 	
+	/**
+	 * Graphe
+	 */
 	private AdjArray graph;
+	/**
+	 * Liste des noeuds dans un ordre aleatoire
+	 */
 	private List<Integer> liste;
+	/**
+	 * Liste des labels attribues aux noeuds
+	 */
 	private List<Integer> labels;
 	
 	
@@ -28,6 +40,9 @@ public class LabelPropagation
 		labels = new ArrayList<>();
 	}
 	
+	/**
+	 * Algorithme de propagation
+	 */
 	public void propagate()
 	{
 		liste = new ArrayList<>();
@@ -89,6 +104,10 @@ public class LabelPropagation
 		}while(swap);
 	}
 	
+	
+	/**
+	 * Affichage des noeuds avec leurs labels
+	 */
 	public void afficheLabels()
 	{
 		for(int i = 0; i < 4; i++)
@@ -101,6 +120,13 @@ public class LabelPropagation
 		}
 	}
 	
+	
+	/**
+	 * Exportation des noeuds avec leurs communautes dans un fichier
+	 * @param path
+	 * @param fileName
+	 * @throws IOException
+	 */
 	public void exportToFile(final String path, final String fileName) throws IOException {
 		File export = new File(path, fileName + ".txt");
 		BufferedWriter writer = new BufferedWriter(new FileWriter(export));

@@ -6,8 +6,20 @@ import java.util.Scanner;
 
 import algorithms.graphs.AdjArrayEdge;
 
+/**
+ * Initialisation d'un graphe Adj-Array avec le stockage de ses arretes
+ */
 public class CreateAdjArrayEdge {
 
+	/**
+	 * 
+	 * @param parentPath
+	 * @param childPath
+	 * @param nbJumps
+	 * @param isOriented
+	 * @param size
+	 * @return le graphe initialise
+	 */
 	public AdjArrayEdge create(final String parentPath, final String childPath, int nbJumps, boolean isOriented,int size) {
 		Scanner sc = null;
 		AdjArrayEdge g = new AdjArrayEdge(isOriented, size);

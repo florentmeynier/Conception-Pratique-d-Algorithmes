@@ -7,8 +7,14 @@ import algorithms.graphs.AdjArrayEdge;
 import algorithms.graphs.Edge;
 import algorithms.utils.Triangle;
 
+/**
+ * Recherche des triangles d'un graphe
+ */
 public class FindTriangles {
 
+	/**
+	 * Graphe
+	 */
 	private AdjArrayEdge graph;
 	
 	public FindTriangles(AdjArrayEdge graph)
@@ -16,6 +22,10 @@ public class FindTriangles {
 		this.graph = graph;
 	}
 	
+	/**
+	 * Algorithme de recherche des triangles
+	 * @return la liste des triangles
+	 */
 	public List<Triangle> findTriangles()
 	{
 		List<Triangle> res = new ArrayList<Triangle>();
@@ -51,7 +61,6 @@ public class FindTriangles {
 				}
 			}
 		}
-		
 		return res;
 	}	
 }

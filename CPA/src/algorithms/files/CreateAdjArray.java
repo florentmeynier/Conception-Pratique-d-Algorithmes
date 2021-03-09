@@ -3,14 +3,24 @@ package algorithms.files;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 import algorithms.graphs.AdjArray;
 
+/**
+ * Initialisation d'un graphe Adj-Array
+ */
 public class CreateAdjArray {
 
+	/**
+	 * Creation du graphe
+	 * @param parentPath
+	 * @param childPath
+	 * @param nbJumps
+	 * @param isOriented
+	 * @return le graphe initialise
+	 */
 	public AdjArray create(final String parentPath, final String childPath, int nbJumps, boolean isOriented) {
 		Scanner sc = null;
 		

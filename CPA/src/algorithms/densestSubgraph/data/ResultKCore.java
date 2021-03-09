@@ -2,11 +2,26 @@ package algorithms.densestSubgraph.data;
 
 import java.util.List;
 
+/**
+ * Class de resultat de l'algorithme core decomposition
+ */
 public class ResultKCore {
 
+	/**
+	 * Degres max du graphe
+	 */
 	private int dMax;
+	/**
+	 * Liste des cores correspondant à chaque noeud
+	 */
 	private List<Integer> cores;
+	/**
+	 * Core moyen detecte
+	 */
 	private int core;
+	/*
+	 * Degres moyen du graphe
+	 */
 	private int avD;
 
 	public ResultKCore(int dMax, List<Integer> cores, int avD) {
@@ -26,18 +41,34 @@ public class ResultKCore {
 		this.avD = avD;
 	}
 
+	/**
+	 * 
+	 * @return le degres max
+	 */
 	public int getDMax() {
 		return dMax;
 	}
 
+	/**
+	 * 
+	 * @return la liste des cores correspondant a chaque noeud
+	 */
 	public List<Integer> getCores() {
 		return cores;
 	}
 
+	/**
+	 * 
+	 * @return le core moyen du graphe
+	 */
 	public int getCore() {
 		return core;
 	}
 	
+	/**
+	 * 
+	 * @return le degres moyen du graphe
+	 */
 	public int getAvD() {
 		return avD;
 	}

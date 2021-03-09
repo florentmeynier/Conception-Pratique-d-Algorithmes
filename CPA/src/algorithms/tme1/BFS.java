@@ -6,8 +6,14 @@ import java.util.LinkedList;
 
 import algorithms.graphs.AdjArray;
 
+/**
+ * Algorithme de BFS
+ */
 public class BFS {
 
+	/**
+	 * Graphe a etudier
+	 */
 	private AdjArray graphe;
 	
 	public BFS(AdjArray graphe)
@@ -15,6 +21,11 @@ public class BFS {
 		this.graphe = graphe;
 	}
 	
+	/**
+	 * Algorithme
+	 * @param s noeud de depart
+	 * @return le noeud d'arrive et la distance parcouru
+	 */
 	public int execute(int s)
 	{
 		boolean visited[] = new boolean[graphe.size()];
