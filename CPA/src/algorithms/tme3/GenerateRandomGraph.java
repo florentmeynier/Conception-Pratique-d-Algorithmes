@@ -1,4 +1,4 @@
-package algorithms.communityDetection;
+package algorithms.tme3;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -66,7 +66,7 @@ public class GenerateRandomGraph {
 	 */
 	public void makeBenchmark(final int size, final int clusterSize) throws IOException
 	{
-		File resultBenchmark = new File(RESULTS_PATH , RESULTS_BENCHMARK + "_" + 1 + "_" + 1+EXT);
+		File resultBenchmark = new File(RESULTS_PATH , RESULTS_BENCHMARK + "_" + 1 + "_" + 1 + EXT);
 		BufferedWriter benchWriter = new BufferedWriter(new FileWriter(resultBenchmark));
 		StringBuilder sbBenchmark =  new StringBuilder();
 		double p = 0.2;

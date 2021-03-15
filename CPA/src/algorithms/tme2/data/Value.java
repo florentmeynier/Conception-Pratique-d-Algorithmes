@@ -1,4 +1,4 @@
-package algorithms.pageRank.data;
+package algorithms.tme2.data;
 
 public class Value {
 

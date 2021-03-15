@@ -1,15 +1,15 @@
-package algorithms.communityDetection.test;
+package algorithms.tme3.test;
 
 import java.io.IOException;
 
-import algorithms.communityDetection.Louvain;
 import algorithms.files.CreateAdjArray;
 import algorithms.graphs.AdjArray;
+import algorithms.tme3.LabelPropagation;
 
 /**
- * Programme de test de l'algorithme de Louvain
+ * Programme de test de l'algorithme de propagation
  */
-public class LouvainTest {
+public class LabelPropagationTest {
 
 	private static final String SAMPLES_PATH = "Results";
 	private static final String PATTERN = "benchmark_1_1";
@@ -20,11 +20,12 @@ public class LouvainTest {
 		CreateAdjArray createG = new CreateAdjArray();
 		AdjArray g = createG.create(SAMPLES_PATH, PATTERN + EXT, 0, true);
 		
-		Louvain l = new Louvain(g);
+		LabelPropagation lp = new LabelPropagation(g);
 		
-		l.propagate();
+		lp.propagate();
+		lp.afficheLabels();
 		try {
-			l.exportToFile(SAMPLES_PATH, "propagate_louvain");
+			lp.exportToFile(SAMPLES_PATH, "propagate_1");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

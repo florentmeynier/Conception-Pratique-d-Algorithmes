@@ -1,8 +1,8 @@
-package algorithms.pageRank.test;
+package algorithms.tme2.test;
 
 import algorithms.files.CreateAdjArrayEdge;
 import algorithms.graphs.AdjArrayEdge;
-import algorithms.pageRank.PageRank;
+import algorithms.tme2.PageRank;
 
 public class PageRankTest {
 

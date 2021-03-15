@@ -1,10 +1,10 @@
-package algorithms.communityDetection.test;
+package algorithms.tme3.test;
 
 import java.io.IOException;
 
-import algorithms.communityDetection.TrianglePropagation;
 import algorithms.files.CreateAdjArrayEdge;
 import algorithms.graphs.AdjArrayEdge;
+import algorithms.tme3.TrianglePropagation;
 
 /**
  * Programme de test de la propagation sur triangles
@@ -26,7 +26,7 @@ public class TrianglePropagationTest {
 		tp.afficheLabels();
 		
 		try {
-			tp.exportToFile(SAMPLES_PATH, "propagate_2");
+			tp.exportToFile(SAMPLES_PATH, "propagate_triangle");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

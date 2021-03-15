@@ -16,7 +16,6 @@ public class BFSTest {
 	private static final String ENDPATTERN = ".ungraph";
 	private static final String EXT = ".txt";
 	private static final String[] files = { "amazon","lj" /*,"orkut","friendster"*/ };
-	private static final int[] edges = {925872,34681189,117185083,1806067135};
 	
 	public static void main(String args[]) 
 	{

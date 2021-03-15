@@ -1,4 +1,4 @@
-package algorithms.communityDetection;
+package algorithms.tme3;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -50,6 +50,8 @@ public class Louvain {
 		double q = Double.MIN_VALUE;
 		do {
 			swap = false;
+			System.out.println("");
+			afficheLabels();
 			for(int i = 1; i < graph.size(); i++)
 			{
 				int commI = comm.get(i);

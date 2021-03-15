@@ -30,10 +30,12 @@ def visualise_graph(f) :
             color_map.append('yellow')
 
     nx.draw(G,node_color = color_map,with_labels = True)
-
     pp.show()
 
-visualise_graph(sys.argv[1])
+filename = sys.argv[1]
+visualise_graph(filename)
+pp.savefig(filename[:len(filename) - 3] + "png")
+pp.show()
 
 
 

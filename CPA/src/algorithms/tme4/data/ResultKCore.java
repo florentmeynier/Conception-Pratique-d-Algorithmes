@@ -1,4 +1,4 @@
-package algorithms.densestSubgraph.data;
+package algorithms.tme4.data;
 
 import java.util.List;
 

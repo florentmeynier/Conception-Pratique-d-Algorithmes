@@ -1,9 +1,12 @@
-package algorithms;
+package algorithms.tme1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * Classe de chargement d'un graphe
+ */
 public class NodesAndEdgesNumbers 
 {
 	private static final String SAMPLES_PATH = "Samples";
@@ -12,6 +15,12 @@ public class NodesAndEdgesNumbers
 	private static final String EXT = ".txt";
 	private static final String[] files = {"amazon","lj","orkut","friendster"};
 	
+	/**
+	 *
+	 * @param parentPath
+	 * @param childPath
+	 * @return le graphe genere
+	 */
 	private static Graphe LoadGraphe(final String parentPath, final String childPath)
 	{
 		Scanner sc = null;

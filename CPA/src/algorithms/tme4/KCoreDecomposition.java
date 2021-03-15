@@ -1,4 +1,4 @@
-package algorithms.densestSubgraph;
+package algorithms.tme4;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import algorithms.densestSubgraph.data.ResultKCore;
 import algorithms.graphs.AdjArray;
+import algorithms.tme4.data.ResultKCore;
 
 /**
  * Core decomposition
@@ -83,6 +83,17 @@ public class KCoreDecomposition {
 			}
 		}
 		
+		/*int cpt = 0;
+		for(i = 0; i < g.size(); i++)
+		{
+			if(l.get(i) >= 3)
+			{
+				cpt++;
+			}
+		}
+		
+		System.out.println(g.getNbEdges() / (cpt * 1.0));*/
+		
 		return new ResultKCore(dMax, l, (sommeD / nbNodes));
 	}
 	
@@ -104,7 +115,7 @@ public class KCoreDecomposition {
 			{
 				continue;
 			}
-			builder.append(result.getCores().get(i) + "\t" + g.getGraphe()[i].size() + "\n");
+			builder.append(/*i + "\t" +*/ g.getGraphe()[i].size() + "\t" + result.getCores().get(i) + "\n");
 		}
 			
 		writer.write(builder.toString());

@@ -1,11 +1,11 @@
-package algorithms.pageRank;
+package algorithms.tme2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import algorithms.graphs.AdjArrayEdge;
 import algorithms.graphs.Edge;
-import algorithms.pageRank.data.Value;
+import algorithms.tme2.data.Value;
 
 public class PageRank {
 	
@@ -35,7 +35,8 @@ public class PageRank {
 		for(int i = 0; i < graph.size(); i++)
 		{
 			entry[i] = getNbEntry(i);
-			P[i] = unN * entry[i];
+			//P[i] = unN * entry[i];
+			P[i] = unN;
 		}
 		display(P);
 		for(int i = 0; i < t; i++)
@@ -45,15 +46,16 @@ public class PageRank {
 			double norme = 0.0;
 			for(int p = 0; p < P.length; p++)
 			{
-				P[p] = (1 - alpha) * P[p] + alpha * entry[p];
-				norme += P[p];
+				//P[p] = (1 - alpha) * P[p] + alpha * entry[p];
+				P[p] = (1 - alpha) * P[p] + alpha * unN;
+				norme += (P[p] * P[p]);
 			}
-			System.out.println(norme);
-			display(P);
-			norme = (1.0 - norme) / nbNodes;
+			norme = Math.sqrt(norme);
+			//display(P);
+			System.out.println("norme " + norme);
 			for(int p = 0; p < P.length; p++)
 			{
-				P[p] += ((1 - P[p]) / nbNodes);
+				P[p] += ((1 - norme) / nbNodes);
 			}
 			display(P);
 			System.out.println("\n-----------------------\n");
